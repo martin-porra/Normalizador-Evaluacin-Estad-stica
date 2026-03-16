@@ -1,5 +1,9 @@
 <h1>Subir archivo</h1>
 
+{% if error %}
+    <p style="color:rgb(223, 3, 3)">{{ error }}</p>
+    {% endif %}
+
 <form method="POST" enctype="multipart/form-data">
 
     {% csrf_token %}
@@ -7,10 +11,19 @@
     <input type="file" name="archivo">
 
     <button type="submit">Subir</button>
-    
-    {% if tabla %}
+</form>
+{% if tabla %}
     <h2>Vista previa</h2>
     {{ tabla|safe }}
-    {% endif %}
-</form>
+    <br><br>
+{% endif %}
+
+<a href="{% url 'descargar' %}">
+    <button type="button">
+        Descargar archivo limpio
+    </button>
+</a>
+    
+
+
 

@@ -1,6 +1,10 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
-    path("upload/", views.upload),
+    path("", views.home),
+    path("upload/", views.upload, name="upload"),
+    path("descargar/", views.descargar, name="descargar"),
+    
 ]
